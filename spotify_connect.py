@@ -8,6 +8,7 @@ import os
 from dotenv import load_dotenv
 import urllib3
 import ssl
+import streamlit as st
 
 # -------- LOAD ENVIRONMENT VARIABLES --------
 # Load variables from .env file
@@ -15,8 +16,9 @@ load_dotenv()
 
 # -------- SPOTIFY API CONFIGURATION --------
 # Get credentials from environment variables
-SPOTIFY_CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
-SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
+# Read API credentials from Streamlit secrets
+SPOTIFY_CLIENT_ID = st.secrets["SPOTIFY_CLIENT_ID"]
+SPOTIFY_CLIENT_SECRET = st.secrets["SPOTIFY_CLIENT_SECRET"]
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1/"
 
